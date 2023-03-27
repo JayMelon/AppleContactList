@@ -16,6 +16,9 @@
 		43F372A029D226DA00F24B4C /* ContactAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F3729F29D226DA00F24B4C /* ContactAppTests.swift */; };
 		43F372AA29D226DA00F24B4C /* ContactAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F372A929D226DA00F24B4C /* ContactAppUITests.swift */; };
 		43F372AC29D226DA00F24B4C /* ContactAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F372AB29D226DA00F24B4C /* ContactAppUITestsLaunchTests.swift */; };
+		43F372BF29D22F9600F24B4C /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F372BE29D22F9600F24B4C /* ContactsViewController.swift */; };
+		43F372C129D2303E00F24B4C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F372C029D2303E00F24B4C /* MapViewController.swift */; };
+		43F372C329D2306200F24B4C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F372C229D2306200F24B4C /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		43F372A529D226DA00F24B4C /* ContactAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F372A929D226DA00F24B4C /* ContactAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAppUITests.swift; sourceTree = "<group>"; };
 		43F372AB29D226DA00F24B4C /* ContactAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		43F372BE29D22F9600F24B4C /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		43F372C029D2303E00F24B4C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		43F372C229D2306200F24B4C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,9 @@
 				43F3729129D226DA00F24B4C /* Assets.xcassets */,
 				43F3729329D226DA00F24B4C /* LaunchScreen.storyboard */,
 				43F3729629D226DA00F24B4C /* Info.plist */,
+				43F372C229D2306200F24B4C /* SettingsViewController.swift */,
+				43F372C029D2303E00F24B4C /* MapViewController.swift */,
+				43F372BE29D22F9600F24B4C /* ContactsViewController.swift */,
 			);
 			path = ContactApp;
 			sourceTree = "<group>";
@@ -259,8 +268,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				43F3728D29D226D900F24B4C /* ViewController.swift in Sources */,
+				43F372BF29D22F9600F24B4C /* ContactsViewController.swift in Sources */,
 				43F3728929D226D900F24B4C /* AppDelegate.swift in Sources */,
+				43F372C129D2303E00F24B4C /* MapViewController.swift in Sources */,
 				43F3728B29D226D900F24B4C /* SceneDelegate.swift in Sources */,
+				43F372C329D2306200F24B4C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
