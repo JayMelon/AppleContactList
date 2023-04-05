@@ -28,6 +28,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     @IBOutlet weak var btnChange: UIButton!
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
         changeEditMode(self)
         let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtHome, txtCell, txtEmail]
@@ -35,7 +36,22 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
             textField.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
         }
         // Do any additional setup after loading the view.
-        
+        	
+    }
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if currentContact == nil {
+            let context = appDelegate.persitentContainer.viewContext
+            currentContact = Contact(context: context)
+        }
+        currentContact?.name = txtName.text
+        currentContact?.strAddress = txtAddress.text
+        currentContact?.city = txtCity.text
+        currentContact?.state = txtState.text
+        currentContact?.zipCode = txtZip.text
+        currentContact?.cellNum = txtCell.text
+        currentContact?.homeNum = txtHome.text
+        currentContact?.email = txtEmail.text
+        return true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,7 +62,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
         sgmtEditMode.selectedSegmentIndex = 0
         changeEditMode(self)
     }
-    func dateChanged(date: Date){
+    func dateChanged(date: Date)			{
         if currentContact == nil {
             let context = appDelegate.persitentContainer.viewContext
             currentContact = Contact(context: context)
@@ -57,21 +73,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
         lblBirthdate.text = formatter.string(from: date)
         
     }
-    private func textViewShouldEndEditing(_ textField: UITextView) -> Bool {
-        if currentContact == nil {
-            let context = appDelegate.persitentContainer.viewContext
-            currentContact = Contact(context: context)
-        }
-        currentContact?.contactName = txtName.text
-        currentContact?.streetAddress = txtAddress.text
-        currentContact?.city = txtCity.text
-        currentContact?.state = txtState.text
-        currentContact?.zipCode = txtZip.text
-        currentContact?.cellNumber = txtCell.text
-        currentContact?.homeNumber = txtHome.text
-        currentContact?.email = txtEmail.text
-        return true
-    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if(segue.identifier == "segueContactDate"){
             let dateController = segue.destination as! DateViewController

@@ -240,14 +240,14 @@
                         <outlet property="btnChange" destination="Kaa-R9-e1B" id="c9C-wL-r9j"/>
                         <outlet property="lblBirthdate" destination="xC2-vK-rUX" id="Kfh-SI-HkP"/>
                         <outlet property="sgmtEditMode" destination="M9b-Gm-n9z" id="uGx-kN-jpC"/>
-                        <outlet property="txtAddress" destination="7Y5-ob-fcE" id="K9R-G2-YR9"/>
+                        <outlet property="txtAddress" destination="7Y5-ob-fcE" id="iPn-h2-lvr"/>
                         <outlet property="txtCell" destination="kPw-M8-E5G" id="eSg-7K-9SI"/>
-                        <outlet property="txtCity" destination="1sj-EN-C3t" id="BMo-G4-qtz"/>
+                        <outlet property="txtCity" destination="1sj-EN-C3t" id="ZkE-CZ-Dds"/>
                         <outlet property="txtEmail" destination="3nu-w7-jnc" id="yey-xY-KkA"/>
                         <outlet property="txtHome" destination="HhJ-rd-ASN" id="e1Q-WW-Mq4"/>
                         <outlet property="txtName" destination="rgK-GU-Zje" id="P7L-iP-hVW"/>
-                        <outlet property="txtState" destination="w3s-SA-XWa" id="52P-fF-1ii"/>
-                        <outlet property="txtZip" destination="A4E-NT-Aj7" id="10b-ZT-Zja"/>
+                        <outlet property="txtState" destination="w3s-SA-XWa" id="8Ys-yQ-hlP"/>
+                        <outlet property="txtZip" destination="A4E-NT-Aj7" id="J0y-Jj-d2d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
