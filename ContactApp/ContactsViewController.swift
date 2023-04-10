@@ -28,15 +28,37 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     @IBOutlet weak var btnChange: UIButton!
     
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
         changeEditMode(self)
         let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtHome, txtCell, txtEmail]
         for textField in textFields {
             textField.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
+            
         }
         // Do any additional setup after loading the view.
-        	
+        if currentContact != nil {
+            txtName.text = currentContact!.name
+            txtAddress.text = currentContact!.strAddress
+            txtCity.text = currentContact!.city
+            txtState.text = currentContact!.state
+            txtZip.text = currentContact!.zipCode
+            txtHome.text = currentContact!.homeNum
+            txtCell.text = currentContact!.cellNum
+            txtEmail.text = currentContact!.email
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            if currentContact!.birthday != nil {
+                lblBirthdate.text = formatter.string(from: currentContact!.birthday as! Date)
+            }
+        }
+        changeEditMode(self)
+        
+        let textFieldss: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtHome,txtCell,txtEmail]
+        for textField in textFieldss {
+            textField.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)),
+                                for: UIControl.Event.editingDidEnd)
+        }
     }
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if currentContact == nil {
