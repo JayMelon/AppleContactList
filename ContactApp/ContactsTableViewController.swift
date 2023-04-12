@@ -84,8 +84,13 @@ class ContactsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell", for: indexPath)
 //Configure the cell
         let contact = contacts[indexPath.row] as? Contact
-        cell.textLabel?.text = contact?.name
-        cell.detailTextLabel?.text = contact?.city
+        cell.textLabel?.text = "\(contact?.name ?? "") from \(contact?.city ?? "")"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM  dd, yyyy"
+        if let birthdayDate = contact?.birthday {
+            let birthdayString = dateFormatter.string(from: birthdayDate)
+            cell.detailTextLabel?.text = "Born on: \(birthdayString)"
+        }
         cell.accessoryType = UITableViewCell.AccessoryType.detailDisclosureButton
         return cell
     }
