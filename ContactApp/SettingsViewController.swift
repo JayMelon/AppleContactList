@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var swAscending: UISwitch!
     
     
-    let sortOrderItems: Array<String> = ["ContactName","City","Birthday"]
+    let sortOrderItems: Array<String> = ["name","city","birthday"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
       
     }
     //If the user chooses from the pickerview, it calls this function;
-    func pickerView(_pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         let sortField = sortOrderItems[row]
         let settings = UserDefaults.standard
         settings.set(sortField, forKey: Constants.kSortField)

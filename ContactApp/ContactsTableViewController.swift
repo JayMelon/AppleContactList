@@ -9,13 +9,16 @@ import UIKit
 import CoreData
 
 class ContactsTableViewController: UITableViewController {
-    @objc func addButtonTapped(){
-        print("Adding contact")
+    @objc func addButtonTapped() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let addContactController = storyboard.instantiateViewController(withIdentifier: "ContactController") as! ContactsViewController
+        navigationController?.pushViewController(addContactController, animated: true)
     }
+
     //let contacts =    ["Jim","John","Dana","Rosie","Jeremy","Sarah","Matt","Joe","Donald","Jeff"]
     var contacts:[NSManagedObject] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,7 @@ class ContactsTableViewController: UITableViewController {
         tableView.reloadData()
         let addContact = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         self.navigationItem.rightBarButtonItem = addContact
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
         
             // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -45,8 +49,18 @@ class ContactsTableViewController: UITableViewController {
         }
     }
     func loadDataFromDatabase(){
+        let settings = UserDefaults.standard
+        let sortField = settings.string(forKey: Constants.kSortField)
+        let sortAscending = settings.bool(forKey: Constants.kSortDirectionAscending)
+        //Set up coreData
         let context = appDelegate.persitentContainer.viewContext
+        //Set up request
         let request = NSFetchRequest<NSManagedObject>(entityName: "Contact")
+        //Specify sorting
+        let sortDescriptor = NSSortDescriptor(key: sortField, ascending: sortAscending)
+        let sortDescriptorArray = [sortDescriptor]
+            //To sory by multiple fields, add more sort descriptor to the array
+        request.sortDescriptors = sortDescriptorArray
         do {
             contacts = try context.fetch(request)
         }catch let error as NSError {
@@ -75,27 +89,54 @@ class ContactsTableViewController: UITableViewController {
         cell.accessoryType = UITableViewCell.AccessoryType.detailDisclosureButton
         return cell
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func viewWillAppear(_ animated: Bool) {
+        loadDataFromDatabase()
+        tableView.reloadData()
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+
+
+
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let contact = contacts[indexPath.row] as? Contact
+            let context = appDelegate.persitentContainer.viewContext
+            context.delete(contact!)
+            do {
+                try context.save()
+            }
+            catch {
+                fatalError("Error saving context: \(error)")
+            }
+            loadDataFromDatabase()
+            tableView.deleteRows(at: [indexPath], with: .fade )
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedContact = contacts[indexPath.row] as? Contact
+        let name = selectedContact!.name
+
+        let actionHandler = {(action: UIAlertAction!) -> Void in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ContactController") as? ContactsViewController
+            controller?.currentContact = selectedContact
+            self.navigationController?.pushViewController(controller!, animated: true)
+        }	
+
+        let alertController = UIAlertController(title: "Contact selected", message: "Selected row: \(indexPath.row) (\(name))", preferredStyle: .alert)
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let actionDetails = UIAlertAction(title: "Show details", style: .default, handler: actionHandler)
+        alertController.addAction(actionCancel)
+        alertController.addAction(actionDetails)
+        present(alertController, animated: true, completion: nil)
+    }
 
     /*
     // Override to support rearranging the table view.

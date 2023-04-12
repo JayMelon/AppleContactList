@@ -13,7 +13,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
 
     var currentContact: Contact?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+
     
     @IBOutlet weak var sgmtEditMode: UISegmentedControl!
     @IBOutlet weak var txtName: UITextField!
