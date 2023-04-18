@@ -12,6 +12,7 @@
 		4364EDD029DBB2A700DA61DA /* MyContactListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4364EDCE29DBB2A700DA61DA /* MyContactListModel.xcdatamodeld */; };
 		4364EDD229DBC86F00DA61DA /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4364EDD129DBC86F00DA61DA /* DateViewController.swift */; };
 		43DCC4FF29EE3B6100331F85 /* LocationDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DCC4FE29EE3B6100331F85 /* LocationDemoController.swift */; };
+		43DCC50129EE651300331F85 /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DCC50029EE651300331F85 /* MapPoint.swift */; };
 		43F3728929D226D900F24B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F3728829D226D900F24B4C /* AppDelegate.swift */; };
 		43F3728B29D226D900F24B4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F3728A29D226D900F24B4C /* SceneDelegate.swift */; };
 		43F3728D29D226D900F24B4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F3728C29D226D900F24B4C /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		4364EDCF29DBB2A700DA61DA /* MyContactListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyContactListModel.xcdatamodel; sourceTree = "<group>"; };
 		4364EDD129DBC86F00DA61DA /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		43DCC4FE29EE3B6100331F85 /* LocationDemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDemoController.swift; sourceTree = "<group>"; };
+		43DCC50029EE651300331F85 /* MapPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
 		43F3728529D226D900F24B4C /* ContactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F3728829D226D900F24B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43F3728A29D226D900F24B4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				4364EDD129DBC86F00DA61DA /* DateViewController.swift */,
 				432EA87B29E48BB000C6D2DB /* ContactsTableViewController.swift */,
 				43DCC4FE29EE3B6100331F85 /* LocationDemoController.swift */,
+				43DCC50029EE651300331F85 /* MapPoint.swift */,
 			);
 			path = ContactApp;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				432EA87C29E48BB000C6D2DB /* ContactsTableViewController.swift in Sources */,
 				43F3728929D226D900F24B4C /* AppDelegate.swift in Sources */,
 				43F372C129D2303E00F24B4C /* MapViewController.swift in Sources */,
+				43DCC50129EE651300331F85 /* MapPoint.swift in Sources */,
 				4364EDCD29DBA1CF00DA61DA /* Constants.swift in Sources */,
 				43F3728B29D226D900F24B4C /* SceneDelegate.swift in Sources */,
 				4364EDD029DBB2A700DA61DA /* MyContactListModel.xcdatamodeld in Sources */,
